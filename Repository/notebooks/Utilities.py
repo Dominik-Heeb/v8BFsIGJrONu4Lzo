@@ -551,6 +551,8 @@ def ToDisk(varObject,strForcedName="",strType=""):
 	# define path
 	if strType.lower() in ["models","model","m"]:
 		strPath = "../models/"	
+	elif strType.lower() in ["processed","p"]:
+		strPath = "../data/processed/"	
 	else:
 		strPath = gcstrPicklePath  
 		  
@@ -583,6 +585,9 @@ def FromDisk(strObjectName, strType="models"):
         strFilename = f"{gcstrPicklePath}{strObjectName}.p"
     elif strType.lower() in ["models","model","m"]:
         strSpecialPath = "../models/"		
+        strFilename = f"{strSpecialPath}{strObjectName}.p"
+    elif strType.lower() in ["processed","p"]:
+        strSpecialPath = "../data/processed/"		
         strFilename = f"{strSpecialPath}{strObjectName}.p"
     else:
     	print(f"Strange type '{strType}' in function FromDisk().")
